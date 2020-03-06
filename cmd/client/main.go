@@ -14,9 +14,9 @@ import (
 )
 
 func main() {
-	addr := os.Getenv("ADDR")
-	if addr == "" {
-		log.Fatal("missing env var ADDR")
+	host := os.Getenv("HOST")
+	if host == "" {
+		log.Fatal("missing env var HOST")
 	}
 
 	redisURL := os.Getenv("REDIS_URL")
@@ -31,7 +31,7 @@ func main() {
 		Network: "tcp",
 		Address: redisURL,
 	}
-	dialer, err := redislistener.NewDialer(ctx, addr, opt)
+	dialer, err := redislistener.NewDialer(ctx, host, opt)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -67,7 +67,7 @@ func main() {
 		method = "GET"
 	}
 
-	url := fmt.Sprintf("http://%s%s", addr, path)
+	url := fmt.Sprintf("http://%s%s", host, path)
 	req, err := http.NewRequest(method, url, bytes.NewBufferString(body))
 	if err != nil {
 		log.Fatal(err)

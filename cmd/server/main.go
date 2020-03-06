@@ -12,9 +12,9 @@ import (
 )
 
 func main() {
-	addr := os.Getenv("ADDR")
-	if addr == "" {
-		log.Fatal("missing env var ADDR")
+	host := os.Getenv("HOST")
+	if host == "" {
+		log.Fatal("missing env var HOST")
 	}
 
 	redisURL := os.Getenv("REDIS_URL")
@@ -29,7 +29,7 @@ func main() {
 		Network: "tcp",
 		Address: redisURL,
 	}
-	ln, err := redislistener.NewListener(ctx, addr, opt)
+	ln, err := redislistener.NewListener(ctx, host, opt)
 	if err != nil {
 		log.Fatal(err)
 	}
