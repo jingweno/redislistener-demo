@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -16,6 +17,18 @@ func main() {
 		log.Fatal("missing env var ADDR")
 	}
 
+	redisURL := os.Getenv("REDIS_URL")
+	if redisURL == "" {
+		log.Fatal("missing env var REDIS_URL")
+	}
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	opt := redislistener.RedisOpt{
+		Network: "tcp",
+		Address: redisURL,
+	}
 	ln, err := redislistener.NewListener(ctx, addr, opt)
 	if err != nil {
 		log.Fatal(err)
@@ -36,5 +49,6 @@ func main() {
 	}
 	defer srv.Close()
 
+	log.Println("Starting server")
 	_ = srv.Serve(ln)
 }

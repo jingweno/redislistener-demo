@@ -1,0 +1,23 @@
+# github.com/go4org/go4 v0.0.0-20200104003542-c7e774b10ea0
+github.com/go4org/go4/syncutil
+# github.com/golang/protobuf v1.3.2
+github.com/golang/protobuf/proto
+# github.com/hashicorp/errwrap v1.0.0
+github.com/hashicorp/errwrap
+# github.com/hashicorp/go-multierror v1.0.0
+github.com/hashicorp/go-multierror
+# github.com/jingweno/upterm v0.0.9 => ../upterm
+## explicit
+github.com/jingweno/upterm/redislistener
+# github.com/mediocregopher/radix/v3 v3.4.2
+github.com/mediocregopher/radix/v3
+github.com/mediocregopher/radix/v3/internal/bytesutil
+github.com/mediocregopher/radix/v3/resp
+github.com/mediocregopher/radix/v3/resp/resp2
+github.com/mediocregopher/radix/v3/trace
+# github.com/rs/xid v1.2.1
+github.com/rs/xid
+# golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898
+golang.org/x/xerrors
+golang.org/x/xerrors/internal
+# github.com/jingweno/upterm => ../upterm
