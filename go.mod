@@ -1,4 +1,5 @@
 // +heroku install ./cmd/...
+// +heroku goVersion 1.14
 
 module github.com/jingweno/redislistener_server
 
